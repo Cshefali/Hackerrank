@@ -1,0 +1,15 @@
+TRIANGLES table contains 3 integer columns with value of 3 sides. Objective is to identify the type of triangle corresponding to each record.
+If condition does not match for any triangle type, print "Not a triangle." corresponding to the same.
+This Question is an example of Nested CASE().
+
+Solution:
+SELECT CASE
+  WHEN A+B>C AND A+C>B AND B+C>A
+  CASE
+    WHEN A=B AND A=C THEN 'Equilateral'
+    WHEN A=B OR A=C OR B=C THEN 'Isosceles'
+    ELSE 'Scalene'
+   END
+  ELSE 'Not A Triangle.'
+ END
+FROM TRIANGLES;
